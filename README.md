@@ -28,6 +28,24 @@ Gapseq: https://github.com/jotech/gapseq/blob/master/docs/install.md
 PyCoMo: https://github.com/univieCUBE/PyCoMo?tab=readme-ov-file#installation
 
 ## 1. Input Data ##
+The only required input data is the genomes of the community members, as fasta files. 
+They should be placed in a folder containing ONLY the input fasta files.
+
+Note that this protocol has so far only been tested with prokaryotes, but should work also for unicellular eukaryotes - 
+some adaptation will be needed for multicellular organisms.
+
+Optional, but highly recommended, input data is a growth medium, where the organisms are known to be able to grow.
+This growth medium is supplied as a csv file, containing three columns:
+
+1. column called `compounds`: the (ModelSEED/gapseq) identifier of the metabolite
+2. column called `name`: the name of the metabolite
+3. column called `maxFlux`: the maximum uptake rate for the metabolite in `mmol/gDW/hr`
+
+More detailled information on the structure of the medium file can be found in the gapseq tutorial: 
+https://gapseq.readthedocs.io/en/latest/usage/medium.html
+
+Further instructions for the translation of media recipes into a format suitable for metabolic modelling, 
+have a look at the troubleshooting section.
 
 ## 2. Generation of Member Metabolic Models (gapseq) ##
 

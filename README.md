@@ -48,6 +48,17 @@ Further instructions for the translation of media recipes into a format suitable
 have a look at the troubleshooting section.
 
 ## 2. Generation of Member Metabolic Models (gapseq) ##
+With the input data ready, it is time to reconstruct the metabolic networks for all community members. 
+This is done by using `gapseq doall`.
+It searches for chemical reactions and transporters encoded in the genome and reconstructs a draft metabolic model 
+from them. 
+Then, gapseq predicts a likely growth medium for the organism and fills gaps until growth is possible.
+
+An example script calling `gapseq doall` for all fasta files in a specified directory is included in this repository: 
+`scripts/gapseq_reconstruct.sh`
+
+For further explanation on methods, output data, or customization options, have a look at the gapseq documentation: 
+https://gapseq.readthedocs.io/en/latest/usage/basics.html
 
 ## 3. Gap-filling with Medium ##
 

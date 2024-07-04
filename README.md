@@ -45,7 +45,7 @@ More detailled information on the structure of the medium file can be found in t
 https://gapseq.readthedocs.io/en/latest/usage/medium.html
 
 Further instructions for the translation of media recipes into a format suitable for metabolic modelling, 
-have a look at the troubleshooting section.
+have a look at the further reading section.
 
 ## 2. Generation of Member Metabolic Models (gapseq) ##
 With the input data ready, it is time to reconstruct the metabolic networks for all community members. 
@@ -77,9 +77,26 @@ https://gapseq.readthedocs.io/en/latest/usage/basics.html
 ### Curation of the Metabolic Models ###
 
 ### Further Reading ###
+#### Creating Media for Metabolic Modelling ####
+Media are used in metabolic modelling to define which metabolites can be taken up or be excreted by the model, 
+as well as in which quantity. 
+This requires exact specification of all metabolites in the medium. 
+Such a specification is only possible for defined media.
+Complex media, on the other hand, contain ingredients where the constituents are not known, e.g. in yeast extract.
+In such cases, or when the media is a natural environment, rather than the result of a recipe, 
+the media constituents need to be estimated.
+
+Information on translating media into a format usable for metabolic modelling, 
+as well as estimating its constituents can be found in the following (non-exhaustive) list of resources:
+
+- The gapseq documentation: https://gapseq.readthedocs.io/en/latest/usage/medium.html
+- A protocol on the creation of genome-scale metabolic models by Thiele & Palsson (2010): 
+https://doi.org/10.1038/nprot.2009.203
+- A procedure for estimating media constituents for metabolic modelling by Marinos et al. (2020): 
+https://doi.org/10.1371/journal.pone.0236890
 
 ## Troubleshooting ##
-### My Community Metabolic Model does not grow / the model is infeasible. ###
+### My Community Metabolic Model does not grow / the Model is infeasible. ###
 
 
 

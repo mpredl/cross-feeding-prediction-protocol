@@ -62,6 +62,23 @@ For further explanation on methods, output data, or customization options, have 
 https://gapseq.readthedocs.io/en/latest/usage/basics.html
 
 ## 3. Gap-filling with Medium ##
+The next step is gap-filling. 
+Automatically reconstructed metabolic models are likely to contain gaps due to missing 
+genes, or missing/wrong functional annotations.
+This can be tackled with a variety of model curation techniques, one of which is gap-filling.
+Here, a known growth medium for the organism of interest is used to check whether the model is capable 
+of producing biomass.
+If not, reactions are added to the model, filling the gaps in the metabolic network, until biomass production 
+is achieved.
+
+In this protocol, gapseq is used for gap-filling. It uses the genome information from the model reconstruction step, 
+to assess which reactions are more likely to be correct for filling gaps.
+
+An example script is included in this repository: `scripts/gapseq_gapfill.sh`
+
+The script requires the reconstructed metabolic models from the previous step, the growth media for the organisms 
+(see step 1: Input Data), as well as a csv file stating which model should be filled based on which medium. 
+The format of this file is `MODELFILE,MEDIUMFILE`, an example can be seen in `data/media/model_media_pairings.csv`
 
 ## 4. Generation of Community Metabolic Model (PyCoMo) ##
 
@@ -95,6 +112,9 @@ as well as estimating its constituents can be found in the following (non-exhaus
 https://doi.org/10.1038/nprot.2009.203
 - A procedure for estimating media constituents for metabolic modelling by Marinos et al. (2020): 
 https://doi.org/10.1371/journal.pone.0236890
+
+### Reconstruction of Genome-Scale Metabolic Models ###
+
 
 ## Troubleshooting ##
 ### My Community Metabolic Model does not grow / the Model is infeasible. ###

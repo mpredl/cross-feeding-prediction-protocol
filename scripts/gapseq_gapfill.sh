@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# Metabolic model reconstruction script for the cross-feeding-prediction protocol. More information here:
+# Metabolic model gap-filling script for the cross-feeding-prediction protocol. More information here:
 # https://github.com/mpredl/cross-feeding-prediction-protocol
-# Reconstructs metabolic models based on input genomes using gapseq.
+# Fills gaps in the input metabolic models to allow growth on the specified media.
+# Gap-filling is performed using gapseq.
 
 # Variables
 TARGETDIR="path/to/output_dir"  # Where to place the output files

@@ -7,6 +7,11 @@ DATADIR="/path/to/input_genomes"  # The path to the input genome files (director
 
 conda activate $ENVDIR
 
+if [ ! -d $TARGETDIR ]; then
+	echo "Creating directory $TARGETDIR"
+	mkdir $TARGETDIR
+fi
+
 cd $TARGETDIR
 
 for file in $DATADIR/*fasta; do

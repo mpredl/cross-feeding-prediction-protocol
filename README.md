@@ -16,7 +16,8 @@ In case of problems, take a look at the troubleshooting section below.
 
 ## 0. Installation ##
 This protocol uses gapseq and PyCoMo for the analysis, as such, both should be installed. 
-You can find an example script for installing both in a conda environment on a linux machine: `cf_prediction_conda_install.sh`
+You can find an example script for installing both in a conda environment on a linux machine: 
+`cf_prediction_conda_install.sh`
 
 Both R and Python are installed in this conda environment, with specific versions. 
 The installation and protocol are expected to work with newer versions as well, but have not been tested.
@@ -76,8 +77,8 @@ https://gapseq.readthedocs.io/en/latest/usage/basics.html
 
 ### Curation of the Metabolic Models ###
 
-### Further Reading ###
-#### Creating Media for Metabolic Modelling ####
+## Further Reading ##
+### Creating Media for Metabolic Modelling ###
 Media are used in metabolic modelling to define which metabolites can be taken up or be excreted by the model, 
 as well as in which quantity. 
 This requires exact specification of all metabolites in the medium. 

@@ -33,13 +33,15 @@ The results of this protocol are:
 (including interaction partners, metabolites and maximum flux)
 
 ### Runtime ###
-The total runtime for this 
-0. Installation: <1h
-1. Input data: Depends on the availability of genomes and information on media constituents (several minutes to days)
-2. Reconstruction of metabolic models: 4 - 10h per community member
-3. Gap-filling: 0.5 - 2h per model
-4. Construction of community metabolic model: <1h
-5. Prediction of cross-feeding interactions: Depends on the size and complexity of the community metabolic model, 
+The total runtime for this protocol largely depends on the number of species in the community of interest, and the 
+amount of manual curation for models and media. For more details on expected time requirements:
+
+1. Installation: <1h
+2. Input data: Depends on the availability of genomes and information on media constituents (several minutes to days)
+3. Reconstruction of metabolic models: 4 - 10h per community member
+4. Gap-filling: 0.5 - 2h per model
+5. Construction of community metabolic model: <1h
+6. Prediction of cross-feeding interactions: Depends on the size and complexity of the community metabolic model, 
 as well as the capacity for parallel computing (several minutes to multiple hours)
 
 ### Limitations ###
@@ -69,7 +71,7 @@ More information on this co-culture can be found here:
 
 In case of problems, take a look at the troubleshooting section below.
 
-## 0. Installation ##
+## 1. Installation ##
 This protocol uses gapseq and PyCoMo for the analysis, as such, both should be installed. 
 You can find an example script for installing both in a conda environment on a linux machine: 
 `cf_prediction_conda_install.sh`
@@ -83,7 +85,7 @@ Gapseq: https://github.com/jotech/gapseq/blob/master/docs/install.md
 
 PyCoMo: https://github.com/univieCUBE/PyCoMo?tab=readme-ov-file#installation
 
-## 1. Input Data ##
+## 2. Input Data ##
 The only required input data is the genomes of the community members, as fasta files. 
 They should be placed in a folder containing ONLY the input fasta files.
 
@@ -109,7 +111,7 @@ The input data for the test case can be found in the `data` directory.
 The genomes are retrieved from NCBI genbank and the MpT1 media have been reconstructed in Duller et al. (2024) 
 (https://doi.org/10.1101/2024.04.10.588852 )
 
-## 2. Generation of Member Metabolic Models (gapseq) ##
+## 3. Generation of Member Metabolic Models (gapseq) ##
 With the input data ready, it is time to reconstruct the metabolic networks for all community members. 
 This is done by using `gapseq doall`.
 It searches for chemical reactions and transporters encoded in the genome and reconstructs a draft metabolic model 
@@ -122,7 +124,7 @@ An example script calling `gapseq doall` for all fasta files in a specified dire
 For further explanation on methods, output data, or customization options, have a look at the gapseq documentation: 
 https://gapseq.readthedocs.io/en/latest/usage/basics.html
 
-## 3. Gap-filling with Medium ##
+## 4. Gap-filling with Medium ##
 The next step is gap-filling. 
 Automatically reconstructed metabolic models are likely to contain gaps due to missing 
 genes, or missing/wrong functional annotations.
@@ -145,11 +147,17 @@ In the test case of the archaea-bacteria co-culture, the growth media for both o
 However, _B. thetaiotamicron_ has additives in its medium, 
 resulting in two different media being used in the gap-filling step.
 
-## 4. Generation of Community Metabolic Model (PyCoMo) ##
+## 5. Generation of Community Metabolic Model (PyCoMo) ##
 
-## 5. Prediction of Cross-feeding Interactions ##
+## 6. Prediction of Cross-feeding Interactions ##
 
 ## Output Data ##
+The results of this protocol are:
+- Genome-scale metabolic reconstructions for all community members
+- Pathway predictions for all community members
+- A genome-scale, compartmentalized community metabolic model
+- All potential cross-feeding interactions feasible within the model 
+(including interaction partners, metabolites and maximum flux)
 
 ## Further Steps ##
 

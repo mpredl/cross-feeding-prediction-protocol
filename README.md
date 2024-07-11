@@ -170,6 +170,14 @@ You can find more information on ScyNet at: tutorial on GitHub, or the Cytoscape
 - Cytoscape App Store: [apps.cytoscape.org/apps/scynet](https://apps.cytoscape.org/apps/scynet)
 
 ### Validation of Predicted Interactions ###
+As stated in the limitations of this protocol, all predicted cross-feeding interactions should be treated as candidates 
+for further validation experiments. 
+The exact strategy and setup of validation experiments depends on your community of interest, but ideally involve 
+direct measurements of metabolites, such as with mass spectrometry and isotope labelling techniques.
+
+In case no further experimental validation is possible, validation by literature knowledge should be performed.
+While it is clear that novel interactions cannot be validated this way, it can at the very least give some hints on 
+how plausible the results are.
 
 ### Curation of the Metabolic Models ###
 

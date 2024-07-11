@@ -162,6 +162,12 @@ The results of this protocol are:
 ## Further Steps ##
 
 ### Visualisation with ScyNet ###
+The cross-feeding interactions predicted in this protocol are present in tabular format. 
+ScyNet can be used to visualize the community metabolic model and its cross-feeding results.
+
+You can find more information on ScyNet at: tutorial on GitHub, or the Cytoscape App Store page:
+- Github (code & tutorial): [github.com/univieCUBE/ScyNet/wiki](https://github.com/univieCUBE/ScyNet/wiki)
+- Cytoscape App Store: [apps.cytoscape.org/apps/scynet](https://apps.cytoscape.org/apps/scynet)
 
 ### Validation of Predicted Interactions ###
 

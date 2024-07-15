@@ -148,6 +148,18 @@ However, _B. thetaiotamicron_ has additives in its medium,
 resulting in two different media being used in the gap-filling step.
 
 ## 5. Generation of Community Metabolic Model (PyCoMo) ##
+After generating gap-filled models of all community members, PyCoMo is used to create 
+a compartmentalized community metabolic model.
+The model is saved to an SBML file and can be imported by PyCoMo as well as other metabolic modelling tools.
+
+In this step, all external metabolites of the input models are matched, to allow for correct interactions.
+This is achieved by having the same metabolite IDs for equivalent external metabolites.
+In case metabolic models from different origins are used for constructing a community,
+the metabolite IDs are highly likely to be different. 
+Take a look at the troubleshooting section for more information on this.
+
+The result of this step is a SBML file of the community metabolic model, containing both members.
+
 
 ## 6. Prediction of Cross-feeding Interactions ##
 
@@ -205,6 +217,18 @@ https://doi.org/10.1371/journal.pone.0236890
 
 ## Troubleshooting ##
 ### My Community Metabolic Model does not grow / the Model is infeasible. ###
+
+### The community member's external metabolite IDs do not match ###
+This is likely due to the metabolic models of the community members having different origins.
+There are two ways to match equivalent external metabolites during the construction of community metabolic models.
+
+First, by setting the same metabolite ID for equivalent metabolites.
+This process needs to be done by custom curation of the model (either manually, or programmatically).
+
+The other option is to try to match the external metabolites via shared annotations.
+Many automated metabolic model construction pipelines include database identifiers for metabolites.
+Such a database can be specified in PyCoMo and used to match external metabolites with the same database reference.
+
 
 
 

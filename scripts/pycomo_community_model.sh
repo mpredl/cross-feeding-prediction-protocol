@@ -18,8 +18,10 @@ if [ ! -d $TARGETDIR ]; then
         mkdir $TARGETDIR
 fi
 
-pycomo doall model_folder=$MODELDIR \
-  out_dir=$TARGETDIR \
-  community_name=$COMMUNITYNAME \
-  medium=$MEDIUM \
-  sbml_output_file="${COMMUNITYNAME}.xml"
+conda activate $ENVDIR
+
+pycomo -i=$MODELDIR \
+  -o=$TARGETDIR \
+  -n=$COMMUNITYNAME \
+  --save-sbml \
+  --medium=$MEDIUM

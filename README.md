@@ -163,6 +163,7 @@ The result of this step is a SBML file of the community metabolic model, contain
 
 ## 6. Prediction of Cross-feeding Interactions ##
 
+
 ## Output Data ##
 The results of this protocol are:
 - Genome-scale metabolic reconstructions for all community members
@@ -192,6 +193,17 @@ While it is clear that novel interactions cannot be validated this way, it can a
 how plausible the results are.
 
 ### Curation of the Metabolic Models ###
+Since the metabolic models of the community members were automatically reconstructed, 
+they likely contain errors and have no constraints on enzyme activity.
+To provide highly accurate predictions, high quality models are needed.
+This can be achieved by curation of the models 
+(either of the community members, or the entire community metabolic model).
+
+There are many ways to curate a model, such as by incorporating literature knowledge, experimental data, 
+or identifying discrepancies between model predictions and expected behaviour. 
+While many recent publications are available on this topic, 
+the protocol on the creation of genome-scale metabolic models by Thiele & Palsson (2010) can be a good initial step:
+https://doi.org/10.1038/nprot.2009.203
 
 ## Further Reading ##
 ### Creating Media for Metabolic Modelling ###
@@ -212,11 +224,23 @@ https://doi.org/10.1038/nprot.2009.203
 - A procedure for estimating media constituents for metabolic modelling by Marinos et al. (2020): 
 https://doi.org/10.1371/journal.pone.0236890
 
-### Reconstruction of Genome-Scale Metabolic Models ###
-
 
 ## Troubleshooting ##
 ### My Community Metabolic Model does not grow / the Model is infeasible. ###
+There are several possible reasons for this:
+- PyCoMo linearises the community metabolic model by fixing either the community growth-rate, or the abundance profile.
+The current setting of the linearisation could be a community growth-rate that is too high, 
+or an abundance profile that is not feasible in this community.
+Try to set the model in fixed growth-rate mode, at a very low growth-rate (e.g. 10^-6).
+- The medium of the community metabolic model is empty, wrongly formatted or does not support growth of the community.
+specified medium is correct and contains the intended metabolites.
+Also check, if opening all exchange reactions / supplying a medium with all metabolites available results in growth 
+of the community.
+If both of the above cases are true, the specified medium is insufficient for providing growth of the community.
+- The member models are infeasible, 
+since gapseq could not find enough genomic evidence to provide necessary reactions for biomass production.
+Check if all community member models are feasible. 
+If they are not, and gap-filling was done (but insufficient), check if the genome file is incomplete.
 
 ### The community member's external metabolite IDs do not match ###
 This is likely due to the metabolic models of the community members having different origins.

@@ -162,7 +162,27 @@ The result of this step is a SBML file of the community metabolic model, contain
 
 
 ## 6. Prediction of Cross-feeding Interactions ##
+The final step of the protocol is the prediction of cross-feeding interactions.
+This is taken care of by PyCoMo, which outputs the predicted interactions in a csv file.
+Due to linearisation of community metabolic models, 
+FVA calculates flux ranges at a specific growth-rate, or abundance profile. 
+To calculate all potential cross-feeding interactions, 
+it would be necessary to iterate over the whole space of growth-rates or abundance profiles.
+To reduce the computational complexity, PyCoMo calculates all potential cross-feeding interactions in a single FVA,
+across all growth-rates and abundance profiles, by relaxing constraints on equal growth-rate of community members.
 
+Community metabolic models are prone to the formation of thermodynamically infeasible cycles, or loops.
+This is often unavoidable, when two or more community members share a set of external metabolites, 
+which can be reversibly converted. 
+The loops that are formed in such a situation will lead to inflated flux ranges and 
+false positive detection of cross-feeding interactions.
+PyCoMo can prevent this, by running FVA in loopless mode. 
+While this requires more computation, it produces correct results of cross-feeding interactions and flux ranges, 
+without the need to detect and break any loops.
+
+Calculating flux ranges for community metabolic models is a computationally heavy task.
+Runtime can be reduced by utilizing parallelization, 
+setting the number of cores for this step to an appropriate number helps!
 
 ## Output Data ##
 The results of this protocol are:

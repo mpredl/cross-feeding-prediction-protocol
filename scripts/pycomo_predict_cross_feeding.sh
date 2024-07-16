@@ -26,5 +26,6 @@ pycomo -i=$MODELFILE \
   --fva-interaction \
   --fva-flux=0. \
   --composition-agnostic \
+  --loopless=True \
   --num-cores=8
 

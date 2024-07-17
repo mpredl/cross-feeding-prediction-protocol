@@ -8,7 +8,10 @@
 
 # VARIABLES
 MODULENAME="cf_prediction"  # Choose a name for the conda environment
-VERSION="1.0"  # Write your version here
+VERSION="1.0"  # Version of the protocol
+PYCOMOVERSION="0.2.2"  # Version of PyCoMo
+GAPSEQVERSION="1.2"  # Version of Gapseq. Note that the version is not used in the installation script, as always the
+# current version is cloned from GitHub.
 MODULEDIR="/path/to/conda_envs/${MODULENAME}"  # Any place where you want to save your environment
 TARGETDIR="${MODULEDIR}/${VERSION}"
 ENVDIR=${TARGETDIR}
@@ -46,7 +49,7 @@ conda config --add channels defaults && conda config --add channels bioconda && 
 
 conda install -y -p $ENVDIR barrnap bedtools exonerate glpk hmmer blast bash perl parallel gawk sed grep bc git coreutils wget
 conda install -y -p $ENVDIR r-data.table r-stringr r-stringi r-getopt r-doParallel r-foreach r-r.utils r-sybil r-biocmanager bioconductor-biostrings r-jsonlite
-conda install -y -p $ENVDIR cobra biopython numpy scipy pandas matplotlib seaborn jupyter pycomo
+conda install -y -p $ENVDIR cobra biopython numpy scipy pandas matplotlib seaborn jupyter pycomo=$PYCOMOVERSION
 
 # Install additional R packages
 mkdir -p  ${TARGETDIR}/lib/R

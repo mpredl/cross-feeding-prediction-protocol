@@ -24,7 +24,6 @@ pycomo -i=$MODELFILE \
   -n=$COMMUNITYNAME \
   --medium=$MEDIUM \
   --fva-interaction \
-  --fva-flux=0. \
   --composition-agnostic \
   --loopless=True \
   --num-cores=8

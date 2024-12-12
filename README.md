@@ -160,8 +160,9 @@ Take a look at the troubleshooting section for more information on this.
 
 The result of this step is a SBML file of the community metabolic model, containing both members.
 
+## 6. Analysis of the Community ##
 
-## 6. Prediction of Cross-feeding Interactions ##
+### 6.a Prediction of Potential Cross-feeding Interactions ###
 The final step of the protocol is the prediction of cross-feeding interactions.
 This is taken care of by PyCoMo, which outputs the predicted interactions in a csv file.
 Due to linearisation of community metabolic models, 
@@ -183,6 +184,23 @@ without the need to detect and break any loops.
 Calculating flux ranges for community metabolic models is a computationally heavy task.
 Runtime can be reduced by utilizing parallelization, 
 setting the number of cores for this step to an appropriate number helps!
+
+### 6.b FVA with Specific Abundance or Growth-Rate ###
+If the abundances of the community members, or the growth-rate of the community are known, they can be used as input to the model.
+PyCoMo can then be used to run FVA and calculate the feasible flux ranges for all metabolite exchanges, as well as the cross-feeding interactions.
+
+For FVA, a fraction of the objective (the community growth-rate) that needs to be reached has to be provided when setting the abundances of community members.
+Setting this parameter to 0, will show flux ranges from no growth in the community, to the highest possible growth-rate. 
+A value of 1 shows all flux ranges that still allow for 100% of the maximum growth-rate. 
+In other words, it identifies ranges given by alternative solutions. 
+A value of 0.9, or 90% of the maximum growth-rate could be of interest, when it is assumed that the goal of all members of the community is fast growth, but do not reach a theoretical optimum (e.g. due to also preparing for future stress, preferring utilization of multiple substrates over the optimal, or general evolutionary reasons / not having adapted for optimal behavior in the simulated condition).
+
+With FVA, both the flux vector, as well as the summary of cross-feeding metabolites can be calculated. 
+The growth-rate of the community can be found in the flux vector csv file, under reaction ID `community_biomass`.
+
+### 6.c Identifying the Composition which Achieves the Highest Growth-Rate ###
+The maximum growth-rate, as well as the community compositions that can reach it, can be calculated. 
+Note that in case one organism can grow faster on its own, than with other community members, the maximum growth-rate of the community will be the growth-rate of the fastest growing community member, and the feasible community composition will be 1 for this organism and 0 for all others.
 
 ## Output Data ##
 The results of this protocol are:
